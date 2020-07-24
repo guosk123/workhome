@@ -1,0 +1,1 @@
+1、springboot 启动类Application的自动扫描装配范围是该类所在目录内所有类，如果该类与其余类不在同一个包内就需要使用@ComponentScan({"com.xxx.xxx"})注解指定扫描包的范围。
