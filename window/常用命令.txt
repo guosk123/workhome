@@ -1,0 +1,2 @@
+1、查看端口占用：netstat -ano
+2、查看具体的端口占用情况：netstat -ano|findstr "8080"
