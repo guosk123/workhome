@@ -1,1 +1,24 @@
 1、springboot 启动类Application的自动扫描装配范围是该类所在目录内所有类，如果该类与其余类不在同一个包内就需要使用@ComponentScan({"com.xxx.xxx"})注解指定扫描包的范围。
+2、打包maven项目时，如果引入了非maven仓库的jar包，想要将外部jar包打入到项目jar包中，需要如下操作：
+   1、在pom文件中添加依赖：
+   <dependency>
+        <groupId>com.xx.xxx</groupId>(名称自定)
+        <artifactId>xxx</artifactId>(名称自定)
+        <version>1.0</version>
+        <scope>system</scope>
+        <systemPath>${basedir}/src/main/resources/lib/xxx.jar</systemPath>(外部jar包所在位置)
+    </dependency>
+    2、在pom打包标签内加入
+    <build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+                <!-- 指定包含system的依赖 -->
+				<configuration>
+                    <includeSystemScope>true</includeSystemScope>
+                </configuration>
+                <!-- end -->
+			</plugin>
+		</plugins>
+	</build>
