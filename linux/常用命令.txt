@@ -1,0 +1,4 @@
+ps aux|grep <服务名称> (查看服务进程)
+journalctl -u elasticsearch (常看系统日志)
+free (查看内存)
+df -h (查看存储空间)
