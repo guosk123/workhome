@@ -1,3 +1,4 @@
 方法一、lsof -i:8000
 
 方法二、netstat -tunlp |grep 8000
+       netstat -ntpl |grep 8000
